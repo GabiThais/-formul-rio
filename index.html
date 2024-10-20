@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Serviço</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-section">
+        <h2>Formulário de Serviço</h2>
+        <form id="serviceForm">
+            <fieldset>
+                <legend>Informações Pessoais</legend>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Informações do Serviço</legend>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="lingua">Língua Aplicada:</label>
+                    <select class="form-control" id="lingua" name="lingua" required>
+                        <option>Inglês</option>
+                        <option>Espanhol</option>
+                        <option>Francês</option>
+                        <option>Português (pt-br)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="arquivo">Upload de Arquivo:</label>
+                    <input type="file" class="form-control-file" id="arquivo" name="arquivo" accept=".pdf,.doc,.docx,.jpeg,.png" required>
+                </div>
+                <div class="form-group">
+                    <label>Linguagens Preferidas:</label>
+                    <select multiple class="form-control" id="linguagens" name="linguagens" required>
+                        <option>JavaScript</option>
+                        <option>Python</option>
+                        <option>C++</option>
+                        <option>Java</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Banco de Dados Recomendado:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="banco" id="mysql" value="MySQL" required>
+                        <label class="form-check-label" for="mysql">MySQL</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="banco" id="postgresql" value="PostgreSQL">
+                        <label class="form-check-label" for="postgresql">PostgreSQL</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="turno">Turno Preferido para Reuniões:</label>
+                    <select class="form-control" id="turno" name="turno" required>
+                        <option>Manhã</option>
+                        <option>Tarde</option>
+                        <option>Noite</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="horario">Melhor Horário para Reuniões:</label>
+                    <input type="time" class="form-control" id="horario" name="horario" required>
+                </div>
+                <div class="form-group">
+                    <label for="data">Previsão de Entrega:</label>
+                    <input type="date" class="form-control" id="data" name="data" required>
+                </div>
+            </fieldset>
+
+            <button type="reset" class="btn btn-secondary">Limpar</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('serviceForm').addEventListener('submit', function(event) {
+        if (!this.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+            alert('Por favor, preencha todos os campos obrigatórios.');
+        } else {
+            alert('Formulário enviado com sucesso!');
+        }
+        this.classList.add('was-validated');
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
